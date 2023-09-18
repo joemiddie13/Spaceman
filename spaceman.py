@@ -10,6 +10,10 @@ def load_word():
     return secret_word #returns the 'secret_word' effectively making it the output of 'load_word' function
 
 def is_word_guessed(secret_word, letters_guessed):
+    for letter in secret_word:
+        if letter not in letters_guessed:
+            return False
+    return True
     '''
     A function that checks if all the letters of the secret word have been guessed.
 
@@ -24,6 +28,8 @@ def is_word_guessed(secret_word, letters_guessed):
     pass
 
 def get_guessed_word(secret_word, letters_guessed):
+    
+    
     '''
     A function that is used to get a string showing the letters guessed so far in the secret word and underscores for letters that have not been guessed yet.
 
