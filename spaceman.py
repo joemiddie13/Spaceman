@@ -1,20 +1,13 @@
 import random
 
 def load_word():
-    '''
-    A function that reads a text file of words and randomly selects one to use as the secret word
-        from the list.
-
-    Returns: 
-           string: The secret word to be used in the spaceman guessing game
-    '''
-    f = open('words.txt', 'r')
-    words_list = f.readlines()
-    f.close()
+    f = open('words.txt', 'r') #opens the file 'words.txt' in read mode 'r' and stores the file object in variable 'f'
+    words_list = f.readlines() #reads all the lines from the file f into a list, where each element of the list is a line from the file. This list is stored in the variable words_list.
+    f.close() #closes the file 'f'
     
-    words_list = words_list[0].split(' ') #comment this line out if you use a words.txt file with each word on a new line
-    secret_word = random.choice(words_list)
-    return secret_word
+    words_list = words_list[0].split(' ') #takes the first element of 'words_list' and splits into individual words based on spaces
+    secret_word = random.choice(words_list) #picks a random word from the list and stores it in 'secret_word'
+    return secret_word #returns the 'secret_word' effectively making it the output of 'load_word' function
 
 def is_word_guessed(secret_word, letters_guessed):
     '''
