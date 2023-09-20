@@ -10,7 +10,7 @@ def load_word():
     secret_word = random.choice(words_list) #picks a random word from the list and stores it in 'secret_word'
     return secret_word #returns the 'secret_word' effectively making it the output of 'load_word' function
 
-print(load_word())
+# print(load_word())
 
 # Function checks if all the letters in secret_word are present in letters_guessed
 def is_word_guessed(secret_word, letters_guessed):
@@ -18,6 +18,11 @@ def is_word_guessed(secret_word, letters_guessed):
         if letter not in letters_guessed:
             return False
     return True
+
+test_secret_word = "dog"
+test_guessed_letters = ["f", "o", "l"]
+print(is_word_guessed(test_secret_word, test_guessed_letters))
+
  
 # Function to generate and return a string that represents the letters correctly guessed so far, underscores letters incorrect
 def get_guessed_word(secret_word, letters_guessed):
@@ -28,7 +33,7 @@ def get_guessed_word(secret_word, letters_guessed):
         else:
             word += '_'
     return word
-
+print(get_guessed_word(test_secret_word, test_guessed_letters))
  
     
 #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
