@@ -19,12 +19,12 @@ def is_word_guessed(secret_word, letters_guessed):
             return False
     return True
 
-test_secret_word = "dog"
-test_guessed_letters = ["f", "o", "l"]
-print(is_word_guessed(test_secret_word, test_guessed_letters))
+# test_secret_word = "dog"
+# test_guessed_letters = ["f", "o", "l"]
+#print(is_word_guessed(test_secret_word, test_guessed_letters))
 
  
-# Function to generate and return a string that represents the letters correctly guessed so far, underscores letters incorrect
+# Function to loop through letters in secret word and build a string that shows letters correctly guessed
 def get_guessed_word(secret_word, letters_guessed):
     word = ''
     for letter in secret_word:
@@ -33,29 +33,19 @@ def get_guessed_word(secret_word, letters_guessed):
         else:
             word += '_'
     return word
-print(get_guessed_word(test_secret_word, test_guessed_letters))
+#print(get_guessed_word(test_secret_word, test_guessed_letters))
  
     
-#TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
-
-
-
-#def is_guess_in_word(guess, secret_word):
-    # '''
-    # A function to check if the guessed letter is in the secret word
-
-    # Args:
-    #     guess (string): The letter the player guessed this round
-    #     secret_word (string): The secret word
-
-    # Returns:
-    #     bool: True if the guess is in the secret_word, False otherwise
-
-    # '''
-    #TODO: check if the letter guess is in the secret word
-
-
-#def spaceman(secret_word):
+def spaceman(secret_word):
+    letters_guessed = []
+    game_over = False
+    while (game_over == False):
+        print("Welcome to the word guessing game, Spaceman!!!")
+        print("<********************************************>")
+        print("You will have seven attempts to guess the word correctly, inputting one letter at a time.")
+        print("On each attempt, I will make sure you see how close you are getting!")
+        print("Good luck!")
+        letters_guessed = input("What letter is your first guess? ")
     # '''
     # A function that controls the game of spaceman. Will start spaceman in the command line.
 
@@ -77,4 +67,4 @@ print(get_guessed_word(test_secret_word, test_guessed_letters))
 
 #These function calls that will start the game
 secret_word = load_word()
-# spaceman(secret_word)
+spaceman(secret_word)
