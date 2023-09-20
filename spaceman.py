@@ -10,6 +10,8 @@ def load_word():
     secret_word = random.choice(words_list) #picks a random word from the list and stores it in 'secret_word'
     return secret_word #returns the 'secret_word' effectively making it the output of 'load_word' function
 
+print(load_word())
+
 # Function checks if all the letters in secret_word are present in letters_guessed
 def is_word_guessed(secret_word, letters_guessed):
     for letter in secret_word:
@@ -25,7 +27,9 @@ def get_guessed_word(secret_word, letters_guessed):
             word += letter
         else:
             word += '_'
-        return word
+    return word
+
+ 
     
 #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
 
@@ -67,5 +71,5 @@ def get_guessed_word(secret_word, letters_guessed):
     #TODO: check if the game has been won or lost
 
 #These function calls that will start the game
-# secret_word = load_word()
+secret_word = load_word()
 # spaceman(secret_word)
