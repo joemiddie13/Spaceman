@@ -50,6 +50,7 @@ def spaceman(secret_word):
 
     while not game_over:
         guess = input("What letter do you guess? _")
+        print(f"Letters used so far:{letters_guessed}")
         if len(guess) != 1:
             print("Please, only one letter at a time!")
         elif guess in letters_guessed:
@@ -80,17 +81,6 @@ def spaceman(secret_word):
             else:
                 print("Thank you for playing S-P-A-C-E-M-A-N!!!!!")
 
-
-    # '''
-    # A function that controls the game of spaceman. Will start spaceman in the command line.
-
-    # Args:
-    #   secret_word (string): the secret word to guess.
-
-    # '''
-
-
-    #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
     #TODO: show the guessed word so far
 
