@@ -38,14 +38,49 @@ def get_guessed_word(secret_word, letters_guessed):
     
 def spaceman(secret_word):
     letters_guessed = []
+    wrong_guess = 0
+    max_wrong_guess = 7
     game_over = False
-    while (game_over == False):
-        print("Welcome to the word guessing game, Spaceman!!!")
-        print("<********************************************>")
-        print("You will have seven attempts to guess the word correctly, inputting one letter at a time.")
-        print("On each attempt, I will make sure you see how close you are getting!")
-        print("Good luck!")
-        letters_guessed = input("What letter is your first guess? ")
+
+    print("Welcome to the word guessing game, Spaceman!!!")
+    print("<********************************************>")
+    print("You will have seven attempts to guess the word correctly, inputting one letter at a time.")
+    print("On each attempt, I will make sure you see how close you are getting!")
+    print("Good luck!")
+
+    while not game_over:
+        guess = input("What letter do you guess? _")
+        if len(guess) != 1:
+            print("Please, only one letter at a time!")
+        elif guess in letters_guessed:
+            print("You already guessed this letter, try again!")
+        elif guess in secret_word:
+            letters_guessed.append(guess)
+            print("Great guess!")
+            print("Word: " + get_guessed_word(secret_word, letters_guessed))
+            if is_word_guessed(secret_word, letters_guessed):
+                print("Congrats! You guessed the correct word!")
+                game_over = True
+        else:
+            letters_guessed.append(guess)
+            wrong_guess += 1
+            print("Sorry, that letter is not in the word.")
+            print("Word: " + get_guessed_word(secret_word, letters_guessed))
+            if wrong_guess == max_wrong_guess:
+                print("You ran out of guesses. The word was " + secret_word + ".")
+                game_over = True
+        
+        if game_over:
+            play_again = input("Would you like to play again? Type: 'yes' or 'no': ")
+            if play_again.lower() == "yes":
+                secret_word = load_word()
+                letters_guessed = []
+                wrong_guess = 0
+                game_over = False
+            else:
+                print("Thank you for playing S-P-A-C-E-M-A-N!!!!!")
+
+
     # '''
     # A function that controls the game of spaceman. Will start spaceman in the command line.
 
@@ -54,10 +89,6 @@ def spaceman(secret_word):
 
     # '''
 
-
-    #TODO: show the player information about the game according to the project spec
-
-    #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
